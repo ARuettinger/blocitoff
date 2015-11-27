@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def show
-  	@current_user
+  	@item = Item.new
   end
 end

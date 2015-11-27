@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'items/create'
-
   devise_for :users
   #unauthenticated - signed out users
   #authenticated - signed in users
@@ -15,5 +13,5 @@ Rails.application.routes.draw do
     root "users#show", as: :authenticated_root
   end
 
-  resources :users, only: [:create]
+  resources :items
 end
