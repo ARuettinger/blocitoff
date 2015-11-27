@@ -5,3 +5,21 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Faker Gem
+# loop 10 times
+# 	create a user
+# 	loop 10 times
+# 		create a to do item associated with the user
+# 	end
+# end
+
+# Create Users
+10.times do
+	user = User.create!(
+		name: Faker::Name.name,
+		email: Faker::Internet.email,
+		password: Faker::Internet.password(10),
+		item: Faker::Hipster.sentence
+		)
+end
