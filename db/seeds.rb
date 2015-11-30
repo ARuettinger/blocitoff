@@ -22,6 +22,7 @@
 		)
 	10.times do 
 		item = Item.create!(
+			user: users.sample
 			name: Faker::Hipster.sentence
 			)
 	end
