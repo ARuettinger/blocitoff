@@ -17,9 +17,12 @@
 # Create Users
 10.times do
 	user = User.create!(
-		name: Faker::Name.name,
 		email: Faker::Internet.email,
 		password: Faker::Internet.password(10),
-		item: Faker::Hipster.sentence
 		)
+	10.times do 
+		item = Item.create!(
+			name: Faker::Hipster.sentence
+			)
+	end
 end
