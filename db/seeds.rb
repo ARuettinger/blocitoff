@@ -20,10 +20,17 @@
 		email: Faker::Internet.email,
 		password: Faker::Internet.password(10),
 		)
+	users = User.all
+
 	10.times do 
 		item = Item.create!(
-			user: users.sample
+			user: user,
 			name: Faker::Hipster.sentence
 			)
 	end
 end
+
+me = User.first
+me.email = "aaron.ruettinger@gmail.com"
+me.password = "password"
+me.save!
