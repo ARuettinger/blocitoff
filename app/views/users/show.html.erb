@@ -1,9 +1,8 @@
 <h1><%= current_user.email %>'s to do list.</h1>
+<div class="new-item">
+	<%= render partial: 'items/form', locals: {item: @item} %>
+</div>
 
-<%= render partial: 'items/form', locals: {item: @item} %>
-
-<ol>
-	<% current_user.items.each do |item|  %>
-		<li><%= item.name %></li>
-	<% end -%>
+<ol class="js-items">
+	<%= render current_user.items %>
 </ol>

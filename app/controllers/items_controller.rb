@@ -3,13 +3,30 @@ class ItemsController < ApplicationController
   	@item = Item.new
   	@item = Item.new(item_params)
   	@item.user = current_user
-  	if @item.save
-  		flash[:notice] = "Item was created."
-  		redirect_to root_url
-  	else
-  		flash[:error] = "There was an error saving the item."
-  		redirect_to root_url
-  	end
+    @new_item = Item.new
+
+    if @item.save
+      flash[:notice] = "item saved successfully."
+    else
+      flash[:error] = "item failed to save."
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      flash[:notice] = "Item was completed."
+    else
+      flash[:notice] = "Item could not be completed. Try harder next time."
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private
