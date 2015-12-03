@@ -1,4 +1,9 @@
-<%= content_tag(:li, id: "item-#{item.id}") do %>
-	<%= item.name %>
-	<%= link_to "", item, method: :delete, class: 'glyphicon glyphicon-ok pull-right', remote: true %>
+<%= content_tag(:li, id: "item-#{item.id}", class: "row") do %>
+	<div class="col-md-9">
+		<%= item.name %>
+	</div>
+	<div class="col-md-3">
+		<%= distance_of_time_in_words(item.created_at, Time.now)  %>
+		<%= link_to "", item, method: :delete, class: 'glyphicon glyphicon-ok', remote: true %>
+	</div>	
 <% end -%>
